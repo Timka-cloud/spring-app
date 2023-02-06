@@ -10,15 +10,17 @@
 
         <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-        <bean id="classicalMusic" class="kz.timka.spring.ClassicalMusic"/>
+        <bean id="classicalMusic" class="kz.timka.spring.ClassicalMusic" scope="prototype"
+              init-method="doMyInit" destroy-method="doMyDestroy"
+              factory-method="getInstance"/> <!-- теперь когда спринг будет создавать бин по этому классу он будет вызывать фабричный метод-->
 
-        <bean id="rockMusic" class="kz.timka.spring.RockMusic"/>
+        <bean id="rockMusic" class="kz.timka.spring.RockMusic" scope="prototype"/>
 
-        <bean id="rapMusic" class="kz.timka.spring.RapMusic"/>
+        <bean id="rapMusic" class="kz.timka.spring.RapMusic" scope="prototype"/>
 
 
 
-        <bean id="musicPlayer" class="kz.timka.spring.MusicPlayer">
+        <bean id="musicPlayer" class="kz.timka.spring.MusicPlayer" scope="prototype">
                 <!--> <constructor-arg ref="rockMusic"/> <-->
                 <!--> <property name="music" ref="rockMusic"/> <-->
 

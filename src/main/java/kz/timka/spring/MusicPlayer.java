@@ -17,7 +17,7 @@ public class MusicPlayer {
     }
 
     public void playMusic() {
-        musicList.forEach(m -> System.out.println("Playing " + m.getSong()));
+        musicList.forEach(m -> System.out.println("Playing " + m.getSong() + " hashcode: " + m));
     }
 
     public void setMusicList(List<Music> musicList) {
