@@ -1,6 +1,8 @@
 package kz.timka.spring.annotationConfig;
 
 import kz.timka.spring.annotationConfig.Music;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("classicBean")

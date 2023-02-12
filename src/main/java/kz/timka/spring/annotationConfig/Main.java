@@ -9,10 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("annotationConfig.xml");
-        Music music = context.getBean("classicBean", Music.class);
-
-        MusicPlayer musicPlayer = new MusicPlayer(music);
+        Music music = context.getBean("rockBean", Music.class);
+        MusicPlayer musicPlayer = context.getBean(MusicPlayer.class);
         musicPlayer.playMusic();
+
         context.close();
     }
 }
