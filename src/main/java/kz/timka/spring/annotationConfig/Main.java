@@ -2,6 +2,8 @@ package kz.timka.spring.annotationConfig;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 public class Main {
 
     // Для бинов со scope prototype spring не вызывает destroy method
@@ -9,7 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("annotationConfig.xml");
-        Music music = context.getBean("rockBean", Music.class);
+
+
         MusicPlayer musicPlayer = context.getBean(MusicPlayer.class);
         musicPlayer.playMusic();
 
