@@ -1,8 +1,12 @@
-package kz.timka.spring;
+package kz.timka.spring.annotationConfig;
 
+import kz.timka.spring.annotationConfig.Music;
+import org.springframework.stereotype.Component;
+
+@Component("classicBean")
 public class ClassicalMusic implements Music {
 
-    private ClassicalMusic () {
+    private ClassicalMusic() {
 
     }
 

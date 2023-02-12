@@ -1,4 +1,4 @@
-package kz.timka.spring;
+package kz.timka.spring.xmlConfig;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
