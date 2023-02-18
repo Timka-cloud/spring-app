@@ -1,4 +1,4 @@
-package kz.timka.spring.annotationConfig;
+package kz.timka.spring.javaCodeConfig;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,8 @@ import javax.annotation.PreDestroy;
 import java.util.List;
 import java.util.Random;
 
-@Component
 public class MusicPlayer {
-    private Music classicalMusic;
-    private Music rockMusic;
+    private List<Music> musicList;
 
     private Random random;
 
@@ -28,14 +26,9 @@ public class MusicPlayer {
     public void init() {
         System.out.println("doing my init");
     }
-    @Autowired
-    public MusicPlayer(
-            @Qualifier(value = "classicBean") Music classicalMusic,
-            @Qualifier(value = "rockBean") Music rockMusic
-    ) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    public MusicPlayer(List<Music> musicList) {
         this.random = new Random();
+        this.musicList = musicList;
     }
 
     @PreDestroy
@@ -44,14 +37,9 @@ public class MusicPlayer {
     }
 
 
-    public void playMusic(Genre genre) {
-        if(genre.equals(Genre.CLASSICAL)) {
-            int i = random.nextInt(2);
-            System.out.println(classicalMusic.getSong().get(i));
-        } else if(genre.equals(Genre.ROCK)) {
-            int i = random.nextInt(2);
-            System.out.println(rockMusic.getSong().get(i));
-        }
+    public void playMusic() {
+        int i = random.nextInt(musicList.size() - 1);
+        System.out.println(musicList.get(i).getSong());
     }
 
 

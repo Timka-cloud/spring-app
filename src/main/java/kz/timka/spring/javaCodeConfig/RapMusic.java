@@ -1,13 +1,12 @@
-package kz.timka.spring.annotationConfig;
+package kz.timka.spring.javaCodeConfig;
 
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
 public class RapMusic implements Music {
     @Override
-    public List<String> getSong() {
-        return List.of("rap music") ;
+    public String getSong() {
+        return "rap music";
     }
 }

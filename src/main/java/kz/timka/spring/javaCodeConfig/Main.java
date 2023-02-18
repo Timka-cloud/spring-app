@@ -1,9 +1,6 @@
-package kz.timka.spring.annotationConfig;
+package kz.timka.spring.javaCodeConfig;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.List;
 
 public class Main {
 
@@ -14,10 +11,8 @@ public class Main {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
 
-        MusicPlayer musicPlayer = context.getBean(MusicPlayer.class);
-        musicPlayer.playMusic(Genre.CLASSICAL);
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
+        MusicPlayer bean = context.getBean(MusicPlayer.class);
+        bean.playMusic();
 
         context.close();
     }
